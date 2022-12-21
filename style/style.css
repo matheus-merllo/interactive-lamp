@@ -1,6 +1,8 @@
 :root{
-    --white: #e2e9ef;
-    --lamp: #a3a28b;
+    --white: #d5d5d5;
+    --dark: #111;
+    --lamp: #35353532;
+    --switch: #dcdcdc;
 }
 
 *{
@@ -13,7 +15,44 @@ body{
     height: 100vh;
     display: flex;
     justify-content : center;
-    background-color: #111;
+    background-color: var(--dark);
+}
+
+body.on{
+    background: linear-gradient(#555, var(--dark));
+}
+
+body.on .bulb-neck{
+    background-color: #fff;
+}
+
+body.on .bulb-neck::before {
+    box-shadow:10px 10px 0 0 #fff;
+} 
+
+body.on .bulb-neck::after{
+    box-shadow:-10px 10px 0 0 #fff;
+}
+
+body.on .bulb::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    filter:blur(30px)
+}
+
+body.on .bulb{
+    background-color: #fff;
+    box-shadow: 0 0 50px #fff,
+                0 0 100px #fff,
+                0 0 150px #fff,
+                0 0 200px #fff,
+                0 0 250px #fff,
+                0 0 300px #fff,
+                0 0 350px #fff;
 }
 
 .base{
@@ -87,15 +126,6 @@ body{
     background-color: var(--lamp);
 }
 
-.bulb{
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: var(--lamp);
-    border-radius: 50%;
-    top: 20px;  
-}
-
 .bulb-neck::before{
     content: '';
     position: absolute;
@@ -107,7 +137,6 @@ body{
     top: -2px;
     box-shadow:10px 10px 0 0 var(--lamp);
     rotate: -20deg;
-    z-index: 10;
 }
 
 .bulb-neck::after{
@@ -121,7 +150,15 @@ body{
     top: -2px;
     box-shadow:-10px 10px 0 0 var(--lamp);
     rotate: 20deg;
-    z-index: 10;
+}
+
+.bulb{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--lamp);
+    border-radius: 50%;
+    top: 20px; 
 }
 
 .switch{
@@ -134,7 +171,7 @@ body{
     top: 700px;
     left: 750px;
     border-radius: 5px;
-    background-color: var(--white);
+    background-color: var(--switch);
 }
 
 .button{
@@ -153,7 +190,7 @@ body{
     height: 92%;
     border: 1px solid #aaa;
     border-radius: 5px;
-    background-color: var(--white);
+    background-color: var(--switch);
 }
 
 .on .switch .button::after  {
