@@ -1,0 +1,125 @@
+:root{
+    --white: #e2e9ef;
+    --black: #a3a28b;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content : center;
+    background-color: #111;
+}
+
+.base{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 10px;
+    background-color: var(--white);
+}
+
+.base::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-bottom-left-radius: 100%;
+    right: 100px;
+    background-color: var(--white);
+}
+
+.base::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-bottom-right-radius: 100%;
+    left: 100px;
+    background-color: var(--white);
+}
+
+.lamp-base{
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    border-bottom: 2px solid #060606;
+    background-color: var(--white);
+}
+
+.lamp-base::before{
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-bottom-right-radius: 100%;
+    background: transparent;
+    right: 30px;
+    top: 10px;
+    box-shadow: 2px 2px 0 2px var(--white);
+    rotate: 270deg;
+}
+
+.lamp-base::after{
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-bottom-left-radius: 100%;
+    background: transparent;
+    left: 30px;
+    top: 10px;
+    box-shadow: -2px 2px 0 2px var(--white);
+    rotate: 90deg;
+}
+
+.bulb-neck{
+    position: absolute;
+    width: 28px;
+    height: 15px;
+    top: 13px;
+    background-color: var(--black);
+}
+
+.bulb{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--black);
+    border-radius: 50%;
+    top: 20px;  
+}
+
+.bulb-neck::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-bottom-right-radius: 100%;
+    background: transparent;
+    right: 25px;
+    top: -2px;
+    box-shadow:10px 10px 0 0 var(--black);
+    rotate: -20deg;
+    z-index: 10;
+}
+
+.bulb-neck::after{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-bottom-left-radius: 100%;
+    background: transparent;
+    right: -17px;
+    top: -2px;
+    box-shadow:-10px 10px 0 0 var(--black);
+    rotate: 20deg;
+    z-index: 10;
+}
